@@ -6,3 +6,4 @@
 2. [**Lab - Components**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-July-2018/Lab-Components)
 3. [**Exercise - Di Services and Observables**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-July-2018/Exercise-Di_Services_and_Observables)
 4. [**Exercise - Routing**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-July-2018/Exercise-Routing)
+5. [**Exercise - Forms**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-July-2018/Exercise-Forms)
