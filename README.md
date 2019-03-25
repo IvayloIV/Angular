@@ -13,3 +13,4 @@
 4. [**Exercise - Routing**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-July-2018/Exercise-Routing)
 5. [**Exercise - Forms**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-July-2018/Exercise-Forms)
 6. [**Exercise - Animations and Interceptors**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-July-2018/Exercise-Animations_and_Interceptors)
+7. [**Exercise - Best Practices**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-July-2018/Exercise-Best_Practices)
