@@ -1,0 +1,12 @@
+<form #searchForm="ngForm" (submit)="search()">
+  <input 
+    class="form-control input-lg" 
+    type="text" 
+    placeholder="Search" 
+    aria-label="Search" 
+    name="query" 
+    [(ngModel)]="query"
+    ngModel
+  >
+  <button class="btn btn-default mt-2" type="submit">Search</button>
+</form>

@@ -1,0 +1,59 @@
+<div class="jumbotron">
+    <app-movie-info></app-movie-info>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Popular Movies</h3>
+  </div>
+
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2" *ngFor="let movie of popular">
+        <app-movie [movie]="movie"></app-movie>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">In Theaters</h3>
+  </div>
+
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2" *ngFor="let movie of theaters">
+        <app-movie [movie]="movie"></app-movie>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Kids Favorites</h3>
+  </div>
+
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2" *ngFor="let movie of popularKids">
+        <app-movie [movie]="movie"></app-movie>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Best Dramas This Year</h3>
+  </div>
+
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2" *ngFor="let movie of dramas">
+        <app-movie [movie]="movie"></app-movie>
+      </div>
+    </div>
+  </div>
+</div>
