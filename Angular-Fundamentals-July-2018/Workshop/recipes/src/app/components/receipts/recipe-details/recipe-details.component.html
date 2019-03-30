@@ -1,0 +1,30 @@
+<div>
+  <div class="row">
+    <div class="col-xs-12">
+      <img [src]="recipe.imagePath" class="img-responsive">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>{{recipe.name}}</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <ul>
+        <li>
+          <a routerLink="/recipes/edit/{{id}}">Edit Recipe</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" (click)="remove()">Delete Recipe</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">{{recipe.description}}</div>
+  </div>
+</div>

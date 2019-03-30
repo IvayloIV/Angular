@@ -1,0 +1,41 @@
+<div class="row" *ngIf="form">
+  <div class="col-xs-12">
+    <form [formGroup]="form" (submit)="edit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" formControlName="name" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="imagePath">Image URL</label>
+            <input type="text" id="imagePath" formControlName="imagePath" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <img [src]="form.get('imagePath').value" class="img-responsive">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <textarea type="text" id="description" class="form-control" formControlName="description" rows="6"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit">
+        Edit
+      </button>
+    </form>
+  </div>
+</div>
