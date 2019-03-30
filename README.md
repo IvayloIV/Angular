@@ -6,6 +6,7 @@
 2. [**Lab - Components**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-March-2019/Lab-Components)
 3. [**Exercise - DI, RxJS, Services**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-March-2019/Exercise-DI_RxJS_Services)
 4. [**Exercise - Modules, SPA, Router**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-March-2019/Exercise-Modules_SPA_Router)
+5. [**Exercise - Directives and Forms**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-March-2019/Exercise-Directives_and_Forms)
 
 ## <b>Angular Fundamentals - July 2018</b>
 1. [**Lab - Intro to Angular and TypeScript**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-July-2018/Lab-Intro_to_Angular_and_TypeScript)
