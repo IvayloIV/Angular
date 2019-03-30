@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <h1>Registration Form</h1>
+      <form [formGroup]="form" (ngSubmit)="register()">
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input class="form-control" placeholder="Full Name" formControlName="fullName">
+          <div class="alert alert-danger" *ngIf="f['fullName'].dirty && f['fullName'].invalid">The full name input field must contain two names separated by a space.</div>
+        </div>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+            </div>
+            <input class="form-control" placeholder="Email Address" type="email" formControlName="email">
+            <div class="alert alert-danger" *ngIf="f['email'].dirty && f['email'].invalid">The email input field must be a valid email address.</div>
+          </div>
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+            </div>
+            <select class="custom-select" style="max-width: 120px;" formControlName="phoneStart">
+              <option disabled>Select one of options below</option>
+              <option *ngFor="let phone of phones | async" [value]="phone">{{phone}}</option>
+            </select>
+            <input class="form-control" placeholder="Phone number" type="text" formControlName="phone">
+            <div class="alert alert-danger" *ngIf="f['phone'].dirty && f['phone'].invalid">The phone number input field must be a 9 digit number.</div>
+          </div>
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+            </div>
+            <select class="form-control" formControlName="type">
+              <option disabled>Select one of options below</option>
+              <option *ngFor="let type of types | async" [value]="type">{{type}}</option>
+            </select>
+          </div>
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            <input class="form-control" placeholder="Create password" type="password" formControlName="password">
+            <div class="alert alert-danger" *ngIf="f['password'].dirty && f['password'].invalid">The password input field must be between 3 and 16 symbols and must contain only letters and digits.</div>
+          </div>
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            <input class="form-control" placeholder="Repeat password" type="password" formControlName="repeatPass">
+            <div class="alert alert-danger" *ngIf="f['repeatPass'].dirty && f['repeatPass'].invalid">The password input field must be between 3 and 16 symbols and must contain only letters and digits.</div>
+            <div class="alert alert-danger" *ngIf="f['password'].dirty && f['repeatPass'].dirty && f['password'].value !== f['repeatPass'].value">Both passwords must match.</div>
+          </div>
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-image"></i> </span>
+            </div>
+            <input class="form-control" placeholder="Image Url" type="text" formControlName="imageUrl">
+            <div class="alert alert-danger" *ngIf="f['imageUrl'].dirty && f['imageUrl'].invalid">Image url must start with http and ends with jpg/png.</div>
+          </div>
+          <div class="form-group">
+            <button type="submit" [disabled]="form.invalid || f['password'].value !== f['repeatPass'].value" class="btn btn-primary btn-block"> Create Account </button>
+          </div>
+          <p class="text-center">Have an account? <a href="">Log In</a> </p>
+        </form>
+      </div>
+      <div class="col-lg-4"></div>
+    </div>
+  </div>

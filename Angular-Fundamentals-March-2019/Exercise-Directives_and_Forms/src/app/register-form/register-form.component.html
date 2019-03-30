@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <h1>Registration Form</h1>
+      <form #form="ngForm" (submit)="register()">
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input class="form-control" placeholder="Full Name" pattern="[A-Z][A-Za-z]+\s[A-Z][A-Za-z]+" name="fullName" #fullName="ngModel" ngModel required>
+          <div class="alert alert-danger" *ngIf="fullName.dirty && fullName.invalid">The full name input field must contain two names separated by a space.</div>
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+          </div>
+          <input class="form-control" placeholder="Email Address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" type="email" name="email" #email="ngModel" ngModel required>
+          <div class="alert alert-danger" *ngIf="email.dirty && email.invalid">The email input field must be a valid email address.</div>
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+          </div>
+          <select class="custom-select" style="max-width: 120px;" name="phoneStart" ngModel>
+            <option disabled>Select one of options below</option>
+            <option *ngFor="let phone of phones | async" [value]="phone">{{phone}}</option>
+          </select>
+          <input class="form-control" placeholder="Phone number" pattern="\d{9}" type="text" name="phone" #phone="ngModel" ngModel required>
+          <div class="alert alert-danger" *ngIf="phone.dirty && phone.invalid">The phone number input field must be a 9 digit number.</div>
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+          </div>
+          <select class="form-control" name="type" ngModel>
+            <option disabled>Select one of options below</option>
+            <option *ngFor="let type of types | async" [value]="type">{{type}}</option>
+          </select>
+        </div>
+        <div ngModelGroup="passwords">
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            <input class="form-control" placeholder="Create password" type="password" pattern="[A-Za-z0-9]{3,16}" name="password" #password="ngModel" ngModel required>
+            <div class="alert alert-danger" *ngIf="password.dirty && password.invalid">The password input field must be between 3 and 16 symbols and must contain only letters and digits.</div>
+          </div>
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            <input class="form-control" placeholder="Repeat password" type="password" pattern="[A-Za-z0-9]{3,16}" name="repeatPass" #repeatPass="ngModel" ngModel required>
+            <div class="alert alert-danger" *ngIf="repeatPass.dirty && repeatPass.invalid">The password input field must be between 3 and 16 symbols and must contain only letters and digits.</div>
+            <div class="alert alert-danger" *ngIf="password.dirty && repeatPass.dirty && password.value !== repeatPass.value">Both passwords must match.</div>
+          </div>
+        </div>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-image"></i> </span>
+            </div>
+            <input class="form-control" placeholder="Image Url" type="text" name="imageUrl" #imageUrl="ngModel" ngModel appImageUrl required>
+            <div class="alert alert-danger" *ngIf="imageUrl.dirty && imageUrl.invalid">Image url must start with http and ends with jpg/png.</div>
+        </div>
+        <div class="form-group">
+          <button type="submit" [disabled]="form.invalid || password.value !== repeatPass.value" class="btn btn-primary btn-block"> Create Account </button>
+        </div>
+        <p class="text-center">Have an account? <a href="">Log In</a> </p>
+      </form>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+</div>
