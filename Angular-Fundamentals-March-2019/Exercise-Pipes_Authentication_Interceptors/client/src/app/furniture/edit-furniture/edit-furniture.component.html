@@ -1,0 +1,66 @@
+<div class="container" *ngIf="form">
+    <div class="row space-top">
+      <div class="col-md-12">
+        <h1>Edit Furniture</h1>
+        <p>Please fill all fields.</p>
+      </div>
+    </div>
+    <form [formGroup]="form" (submit)="edit()">
+      <div class="row space-top">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="form-control-label" for="new-make">Make</label>
+            <input class="form-control" formControlName="make" id="new-make" type="text">
+            <div class="alert alert-danger" *ngIf="f['make'].dirty && f['make'].errors?.required">Make is required.</div>
+            <div class="alert alert-danger" *ngIf="f['make'].dirty && f['make'].errors?.minlength">
+              Make must be at least {{f['make'].errors.minlength.requiredLength}} symbols long.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" for="new-model">Model</label>
+            <input class="form-control is-valid" formControlName="model" id="new-model" type="text">
+            <div class="alert alert-danger" *ngIf="f['model'].dirty && f['model'].errors?.required">Model is required.</div>
+            <div class="alert alert-danger" *ngIf="f['model'].dirty && f['model'].errors?.minlength">
+              Model must be at least {{f['model'].errors.minlength.requiredLength}} symbols long.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" for="new-year">Year</label>
+            <input class="form-control" formControlName="year" id="new-year" type="number">
+            <div class="alert alert-danger" *ngIf="f['year'].dirty && f['year'].invalid">
+                Year must be between 1950 and 2050
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" for="new-description">Description</label>
+            <input class="form-control" formControlName="description" id="new-description" type="text">
+            <div class="alert alert-danger" *ngIf="f['description'].dirty && f['description'].errors?.required">Description is required.</div>
+            <div class="alert alert-danger" *ngIf="f['description'].dirty && f['description'].errors?.minlength">
+                Description must be at least than {{f['description'].errors.minlength.requiredLength}} symbols
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="form-control-label" for="new-price">Price</label>
+            <input class="form-control" formControlName="price" id="new-price" type="number">
+            <div class="alert alert-danger" *ngIf="f['price'].dirty && f['price'].invalid">
+                Price must be a positive number
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" for="new-image">Image</label>
+            <input class="form-control" formControlName="image" id="new-image" type="text">
+            <div class="alert alert-danger" *ngIf="f['image'].dirty && f['image'].errors?.required">
+                Image URL is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" for="new-material">Material (optional)</label>
+            <input class="form-control" formControlName="material" id="new-material" type="text">
+          </div>
+          <input type="submit" class="btn btn-primary" [disabled]="form.invalid" value="Edit" />
+        </div>
+      </div>
+    </form>
+  </div>
