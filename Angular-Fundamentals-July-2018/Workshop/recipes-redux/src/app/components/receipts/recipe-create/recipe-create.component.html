@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form #createForm="ngForm" (submit)="create(createForm.value)">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input required type="text" id="name" name="name" class="form-control" ngModel>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="imagePath">Image URL</label>
+            <input required type="text" id="imagePath" name="imagePath" class="form-control" #imagePath="ngModel" ngModel>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="imagePath.value">
+        <div class="col-xs-12">
+          <img class="img-responsive" [src]="imagePath.value">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+              <label for="description">Description</label>
+            <textarea required type="text" id="description" class="form-control" name="description" rows="6" ngModel></textarea>
+          </div>
+        </div>
+      </div>
+
+      <input type="submit" class="btn btn-primary" value="Create">
+    </form>
+  </div>
+</div>
