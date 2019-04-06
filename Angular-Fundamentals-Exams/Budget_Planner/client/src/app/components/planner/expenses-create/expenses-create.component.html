@@ -1,0 +1,38 @@
+<div class="row space-top">
+  <div class="col-md-12">
+    <h1>Add Expenses</h1>
+    <h3>{{month | monthName}} {{year}}</h3>
+  </div>
+</div>
+<div class="row space-top">
+  <div class="col-md-10">
+    <form [formGroup]="form" (submit)="create()">
+      <legend>Add a new expense</legend>
+      <div class="form-group">
+        <label class="col-md-2" for="name">Name:</label>
+        <input class="col-md-2" formControlName="name" name="name" type="text" />
+        <div *ngIf="f['name'].dirty && f['name'].invalid" class="form-control-feedback">Name is required.</div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2" for="category">Category:</label>
+        <select class="col-md-2 pl-2" formControlName="category" name="category">
+          <option>Non-essential</option>
+          <option>Fixed</option>
+          <option>Variable</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2" for="cost">Cost:</label>
+        <input class="col-md-2" name="cost" formControlName="amount" type="number" />
+        <div *ngIf="f['amount'].dirty && f['amount'].invalid" class="form-control-feedback">Cost must be positive number.</div>
+
+      </div>
+      <div class="form-group">
+        <label class="col-md-2" for="paymentDate">Payment Date:</label>
+        <input class="col-md-2" name="paymentDate" formControlName="date" type="number" />
+        <div *ngIf="f['date'].dirty && f['date'].invalid" class="form-control-feedback">Date must be between 1 and 31.</div>
+      </div>
+      <input type="submit" class="btn btn-secondary" [disabled]="form.invalid" value="Add" />
+    </form>
+  </div>
+</div>

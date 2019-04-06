@@ -1,0 +1,29 @@
+<div class="row space-top">
+  <div class="col-md-12">
+    <h1>Welcome to Budget Planner</h1>
+  </div>
+</div>
+<div class="row space-top">
+  <div class="col-md-12 ">
+    <div class="card bg-secondary">
+      <div class="card-body" *ngIf="details">
+        <blockquote class="card-blockquote">
+          <h2 id="month">{{month | monthName}} {{year}}</h2>
+          <div class="row">
+            <div class="col-md-3 space-top">
+              <h4>Planner</h4>
+              <app-balance-form></app-balance-form>
+            </div>
+            <div class="col-md-8 space-top">
+              <div class="row">
+                <h4 class="col-md-9">Expenses</h4>
+                <a routerLink="/plan/expenses/add/{{year}}/{{month}}" class="btn btn-secondary ml-2 mb-2">Add expenses</a>
+              </div>
+              <app-expenses-list></app-expenses-list>
+            </div>
+          </div>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</div>

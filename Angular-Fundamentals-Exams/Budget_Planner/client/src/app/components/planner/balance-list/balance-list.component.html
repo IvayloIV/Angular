@@ -1,0 +1,24 @@
+<div class="row space-top">
+  <div class="col-md-12">
+    <h1>Yearly Balance</h1>
+  </div>
+</div>
+<div class="row space-top col-md-12">
+  <div class="col-md-3" *ngFor="let month of (months$ | async)">
+    <div class="card text-white bg-secondary">
+      <div class="card-body">
+        <blockquote class="card-blockquote">
+          <h2>{{month.id | monthName}}</h2>
+          <h4>Year {{year}}</h4>
+          <label for="budget">Budget:</label>
+          <input class="col-md-9" name="budget" disabled [value]="month.budget" />
+          <label for="balance">Balance:</label>
+          <input class="col-md-9" name="balance" disabled [value]="month.balance" />
+          <div class="space-top">
+            <a routerLink="/plan/{{year}}/{{month.id}}" class="btn btn-secondary">Details</a>
+          </div>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<header>
+  <nav class="navbar navbar-dark bg-secondary">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                  <a *ngIf="authService.isAuthenticated()" class="nav-link" routerLink="/plan">Yearly Balance</a>
+                  <a *ngIf="authService.isAuthenticated()" class="nav-link" (click)="logout()" href="javascript:void(0)">Logout</a>
+                  <a *ngIf="!authService.isAuthenticated()" class="nav-link" routerLink="/auth/login">Login</a>
+                  <a *ngIf="!authService.isAuthenticated()" class="nav-link" routerLink="/auth/register">Register</a>
+              </div>
+          </div>
+      </div>
+  </nav>
+</header>

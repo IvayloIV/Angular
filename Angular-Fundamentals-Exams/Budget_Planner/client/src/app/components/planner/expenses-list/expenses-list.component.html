@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Cost</th>
+      <th>Payment Date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let expense of details.expenses">
+      <td>{{expense.name}}</td>
+      <td>{{expense.category}}</td>
+      <td>{{expense.amount}}</td>
+      <td>{{expense.date}}-{{expense.month}}-{{expense.year}}</td>
+      <td>
+        <a href="javascript:void(0)" (click)="remove(expense.id)" class="btn btn-secondary">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

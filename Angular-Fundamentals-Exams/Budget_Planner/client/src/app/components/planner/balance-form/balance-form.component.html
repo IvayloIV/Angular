@@ -1,0 +1,11 @@
+<form [formGroup]="form" (submit)="updateBalance()">
+  <div class="form-group">
+    <label class="form-control-label" for="income">Income:</label>
+    <input class="form-control" formControlName="income" name="income" type="number">
+  </div>
+  <div class="form-group">
+    <label class="form-control-label" for="budget">Budget:</label>
+    <input class="form-control" formControlName="budget" name="budget" type="number">
+  </div>
+  <input type="submit" class="btn btn-secondary" value="Save" />
+</form>
