@@ -1,0 +1,8 @@
+<div class="train-logo">
+    <app-search-trips (searchTrips)="searchTrips($event)">
+    </app-search-trips>
+</div>
+<section class="added-trains">
+    <app-trip-card *ngFor="let trip of (trips$ | async)" [trip]="trip">
+    </app-trip-card>
+</section>

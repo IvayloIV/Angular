@@ -1,0 +1,5 @@
+<div *ngIf="(trips$ | async) as trips">
+    <h2>Your Trains</h2>
+    <app-my-trips-card *ngFor="let trip of trips" [trip]="trip">
+    </app-my-trips-card>
+</div>

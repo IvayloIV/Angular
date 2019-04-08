@@ -1,0 +1,17 @@
+label {
+    display: block;
+}
+
+input {
+    width: 40%;
+    padding: 1rem;
+    font-size: 1rem
+}
+
+input[type="submit"]:not(:disabled) {
+    cursor: pointer;
+}
+
+span {
+    display: block;
+}

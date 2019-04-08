@@ -1,0 +1,16 @@
+<div *ngIf="(trip$ | async) as trip">
+    <section class="ticket-area">
+        <div class="ticket-area-left">
+            <img src="https://madridfoodtour.com/wp-content/uploads/2013/03/Juan-Carlos.jpg" alt="image-nature" />
+        </div>
+        <div class="ticket-area-right">
+            <h3>{{trip.destination}}</h3>
+            <div>from {{trip.origin}}</div>
+            <div class="data-and-time">15 January {{trip.time}}</div>
+            <div class="data-and-time">arrives {{trip.arrives}}</div>
+            <div class="data-and-time">duration {{trip.duration}}</div>
+        </div>
+    </section>
+    <app-seats-list [tickets]="trip.tickets" [tripId]="trip._id">
+    </app-seats-list>
+  </div>

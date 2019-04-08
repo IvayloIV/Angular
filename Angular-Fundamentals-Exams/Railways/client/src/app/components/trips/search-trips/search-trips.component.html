@@ -1,0 +1,15 @@
+<form [formGroup]="form" (submit)="search()" class="search-form">
+  <div>
+      <label for="destination">Destination</label>
+      <input type="text" formControlName="destination" id="destination" placeholder="Destination" />
+  </div>
+  <div>
+      <label for="destination">Origin</label>
+      <input type="text" formControlName="origin" id="origin" placeholder="Origin" />
+  </div>
+  <div>
+      <label for="destination">Departure</label>
+      <input type="date" formControlName="date" id="departure" placeholder="Departure" />
+  </div>
+  <input type="submit" class="search" [disabled]="form.invalid" value="Search" />
+</form>

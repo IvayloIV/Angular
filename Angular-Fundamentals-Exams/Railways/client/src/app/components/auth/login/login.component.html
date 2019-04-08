@@ -1,0 +1,16 @@
+<div>
+  <h2>Log In:</h2>
+  <form [formGroup]="form" (submit)="login()">
+    <label>
+      <span>Email:</span>
+      <input type="text" formControlName="email" placeholder="Enter your email." >
+      <div *ngIf="f['email'].dirty && f['email'].invalid" class="form-control-feedback">E-mail is required.</div>
+    </label>
+    <label>
+      <span>Password:</span>
+      <input type="password" formControlName="password" placeholder="Enter your password.">
+      <div *ngIf="f['password'].dirty && f['password'].invalid" class="form-control-feedback">Password min length is 4 symbols.</div>
+    </label>
+    <input type="submit" class="btn btn-secondary" [disabled]="form.invalid" value="Login" />
+  </form>
+</div>

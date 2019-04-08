@@ -1,0 +1,3 @@
+<section class="train-details" *ngFor="let seat of seats">
+  <app-seat-card [seat]="seat" (addToCart)="addToCart($event)"></app-seat-card>
+</section>

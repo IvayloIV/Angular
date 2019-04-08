@@ -1,0 +1,20 @@
+<section class="single-ticket">
+  <div class="left-ticket-container">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjowkhMxh5FEBulvmDqMWAJyUlhXOGUJ0QdeWhJ6NFmUr8lyGj" alt="image-train" class="destination-img" />
+      <div class="train-parameters">
+          <span class="ticket-price">Price: {{ticket.price}}$</span>
+          <span class="ticket-class">{{ticket.class === 'firstClass' ? 'First' : 'Second'}} Class</span>
+      </div>
+  </div>
+  <div class="right-ticket-container">
+      <h2>{{ticket.destination}}</h2>
+      <p>from {{ticket.origin}}</p>
+      <p>{{ticket.date}}</p>
+      <p>arrives {{ticket.arrives}} (duration {{ticket.duration}})</p>
+      <p></p>
+      <div>
+          <span class="number-of-tickets">{{ticket.count}}</span>
+          <a href="javascript:void(0)" (click)="removeTicket()" class="remove">REMOVE</a>
+      </div>
+  </div>
+</section>

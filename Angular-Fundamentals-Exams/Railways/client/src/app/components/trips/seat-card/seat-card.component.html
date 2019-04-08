@@ -1,0 +1,5 @@
+<form [formGroup]="form" (submit)="addTicket()" class="seat-form">
+  <span>{{seat.price}}$</span><span>{{seat.classType}} class</span>
+  <input type="number" formControlName="count" placeholder="Add Number" />
+  <input type="submit" class="create-seat" [disabled]="form.invalid" value="Add to Cart" />
+</form>

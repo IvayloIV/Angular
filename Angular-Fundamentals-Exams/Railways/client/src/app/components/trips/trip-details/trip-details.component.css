@@ -1,0 +1,9 @@
+.ticket-area {
+    display: flex;
+    background-color: #729F98;
+    padding: 2rem;
+}
+
+.ticket-area-left {
+    width: 50%;
+}

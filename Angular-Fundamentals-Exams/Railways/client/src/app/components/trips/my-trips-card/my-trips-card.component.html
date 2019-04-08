@@ -1,0 +1,21 @@
+<section class="purchased-ticket">
+    <div class="purchased-left">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfS1WoKH3jT1FO1NbK9tmVfDPtav_R0JIASWvkIT-SdWsIQOR"
+            alt="image-train" />
+    </div>
+    <div class="purchased-right">
+        <div>
+            <h3>{{trip.destination}}</h3><span>{{trip.date}}</span>
+        </div>
+        <div>
+            from {{trip.origin}} <span>{{trip.time}}</span>
+        </div>
+        <div>
+            arrives <span>{{trip.arrives}}</span>
+        </div>
+        <div>
+            duration <span>{{trip.duration}}</span>
+        </div>
+        <p>{{trip.count}} x {{trip.price}}$ ({{trip.class === 'firstClass' ? 'First' : 'Second'}} Class)</p>
+    </div>
+</section>

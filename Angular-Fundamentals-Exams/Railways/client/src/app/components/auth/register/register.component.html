@@ -1,0 +1,27 @@
+<div>
+    <h2>Create your account:</h2>
+    <form [formGroup]="form" (submit)="register()" class="register-form">
+        <label>
+            <span>Name:</span>
+            <input type="text" formControlName="name" placeholder="Enter your name"/>
+            <div *ngIf="f['name'].dirty && f['name'].invalid" class="form-control-feedback">Name is required.</div>
+        </label>
+        <label>
+            <span>Email:</span>
+            <input type="email" formControlName="email" placeholder="Enter your email" />
+            <div *ngIf="f['email'].dirty && f['email'].invalid" class="form-control-feedback">Email is required.</div>
+        </label>
+        <label>
+            <span>Password:</span>
+            <input type="password" formControlName="password" placeholder="Enter your password" />
+            <div *ngIf="f['password'].dirty && f['password'].invalid" class="form-control-feedback">Password min length is 4 symbols.</div>
+        </label>
+        <label>
+            <span>Repeat Password:</span>
+            <input type="password" formControlName="repeatPass" placeholder="Repeat password" />
+            <div *ngIf="f['repeatPass'].dirty && f['repeatPass'].invalid" class="form-control-feedback">Repeat password min length is 4 symbols.</div>
+        </label>
+        <div *ngIf="f['password'].dirty && f['repeatPass'].dirty && f['password'].value !== f['repeatPass'].value" class="form-control-feedback">Both passwords must match.</div>
+        <input type="submit" class="register" [disabled]="form.invalid || f['password'].value !== f['repeatPass'].value" value="Register" />
+    </form>
+</div>

@@ -1,0 +1,19 @@
+.train-logo {
+    background-size: cover;
+}
+
+.added-trains {
+    display: flex;
+    justify-content: inherit;
+    flex-wrap: wrap;
+}
+
+.added-train {
+    width: 18%;
+}
+
+app-trip-card {
+    background: #729f98;
+    margin: 1rem;
+    padding: 1rem;
+}

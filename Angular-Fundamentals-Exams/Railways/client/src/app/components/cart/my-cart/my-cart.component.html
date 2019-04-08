@@ -1,0 +1,9 @@
+<div *ngIf="(tickets$ | async) as tickets">
+    <app-ticket-details *ngFor="let ticket of tickets" [ticket]="ticket">
+    </app-ticket-details>
+    <section class="ticket-checkout" *ngIf="tickets.length !== 0; else emptyProducts">
+        <div class="total">Sub total: {{tickets | ticketSum}}$</div>
+        <a href="javascript:void(0)" (click)="checkout()" class="checkout">Checkout</a>
+    </section>
+    <ng-template #emptyProducts>You card is empty!</ng-template>
+</div>

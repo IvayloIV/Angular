@@ -1,0 +1,15 @@
+<nav class="nav-register">
+    <div class="left-container">
+        <ul>
+            <li><a routerLink="/">Trains</a></li>
+            <li *ngIf="authService.isAuthenticated()"><a routerLink="/trips/my">My Tickets</a></li>
+            <li *ngIf="!authService.isAuthenticated()"><a routerLink="/auth/login">Login</a></li>
+            <li *ngIf="!authService.isAuthenticated()"><a routerLink="/auth/register">Register</a></li>
+        </ul>
+    </div>
+    <div class="right-container" *ngIf="authService.isAuthenticated()">
+        <span>Welcome, {{username}} |</span>
+        <li><a href="javascript:void(0)" (click)="logout()">Logout</a></li>
+        <a routerLink="/cart/my"><img src="assets/img/cart.png" alt="cart" class="cart"></a>
+    </div>
+</nav>
