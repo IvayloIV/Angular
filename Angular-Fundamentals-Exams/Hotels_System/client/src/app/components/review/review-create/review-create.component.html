@@ -1,0 +1,18 @@
+<div className="create-review">
+  <form [formGroup]="form" (submit)="createReview()">
+      <p>Review:</p>
+      <textarea formControlName="comment" cols="50" rows="7"></textarea>
+      <div [class.error]="f['comment'].invalid" *ngIf="f['comment'].dirty">Review length {{f['comment'].value.length}}/70</div>
+      <p>Rating: </p>
+      <p>
+          <select formControlName="rating" [value]="f['rating'].value">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+          </select>
+      </p>
+      <input type="submit" [disabled]="form.invalid" value="Create review"/>
+  </form>
+</div>

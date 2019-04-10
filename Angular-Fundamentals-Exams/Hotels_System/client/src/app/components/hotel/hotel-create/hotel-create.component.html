@@ -1,0 +1,35 @@
+<div className="container">
+  <h1>Create Hotel</h1>
+  <form [formGroup]="form" (submit)="create()">
+    <div>
+        <label for="name">Name</label>
+        <input formControlName="name" id="name" type="text">
+        <div *ngIf="f['name'].dirty && f['name'].invalid">Name is required.</div>
+    </div>
+    <div>
+        <label for="location">Location</label>
+        <input formControlName="location" id="location" type="text">
+        <div *ngIf="f['location'].dirty && f['location'].invalid">Location is required.</div>
+    </div>
+    <div>
+        <label for="description">Description</label>
+        <input formControlName="description" id="description" type="text">
+        <div *ngIf="f['description'].dirty && f['description'].invalid">Description is required.</div>
+    </div>
+    <div>
+        <label for="numberOfRooms">Number of Rooms</label>
+        <input formControlName="numberOfRooms" id="numberOfRooms" type="number">
+        <div *ngIf="f['numberOfRooms'].dirty && f['numberOfRooms'].invalid">Number of Rooms must be positive number.</div>
+    </div>
+    <div>
+        <label for="image">Image</label>
+        <input formControlName="image" id="image" type="text">
+    </div>
+    <div>
+        <label for="parkingSlots">Parking slots</label>
+        <input formControlName="parkingSlots" id="parkingSlots" type="number">
+        <div *ngIf="f['parkingSlots'].dirty && f['parkingSlots'].invalid">Parking slots must be positive number.</div>
+    </div>
+    <input type="submit" [disabled]="form.invalid" value="Create" />
+  </form>
+</div>

@@ -1,0 +1,4 @@
+<div className="review" *ngFor="let review of (reviews$ | async)">
+  <p>{{review.comment}}</p>
+  <p>Rating - {{review.rating}}</p>
+</div>

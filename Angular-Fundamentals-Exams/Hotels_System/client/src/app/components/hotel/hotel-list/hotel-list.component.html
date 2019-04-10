@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Welcome to Hotel System!</h1>
+  <div class="hotels">
+      <div class="hotel" *ngFor="let hotel of (hotels$ | async)">
+          <img [src]="hotel.image" alt="image-hotel" />
+          <h3>{{hotel.name}}</h3>
+          <p>Location: {{hotel.location}}</p>
+          <p>Rooms: {{hotel.numberOfRooms}}</p>
+          <p>Parking slots: {{hotel.parkingSlots}}</p>
+          <a *ngIf="authService.isAuthenticated()" routerLink="/hotel/details/{{hotel.id}}"><button>Details</button></a>
+      </div>
+  </div>
+  <div class="arrows">
+      <a routerLink="/hotel/list" [queryParams]="{page: lastPage}" *ngIf="page > 1"><span>&#8592;</span></a>
+      <a routerLink="/hotel/list" [queryParams]="{page: nextPage}"><span>&#8594;</span></a>
+  </div>
+</div>

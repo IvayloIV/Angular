@@ -1,0 +1,14 @@
+<div *ngIf="(hotelDetails$ | async) as hotelDetails">
+  <div className="hotel-details">
+      <div>
+          <img src={{hotelDetails.image}} alt="hotel-image" />
+          <h3>{{hotelDetails.name}}</h3>
+          <p>{{hotelDetails.description}}</p>
+          <p>Location: {{hotelDetails.location}}</p>
+          <p>Rooms: {{hotelDetails.numberOfRooms}}</p>
+          <p>Parking slots: {{hotelDetails.parkingSlots}}</p>
+      </div>
+  </div>
+  <app-review-create></app-review-create>
+  <app-review-list></app-review-list>
+</div>

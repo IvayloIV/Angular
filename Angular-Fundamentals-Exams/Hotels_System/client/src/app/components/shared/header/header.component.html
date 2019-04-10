@@ -1,0 +1,8 @@
+<header>
+    <h2>Hotel System</h2>
+    <a class="nav-link" routerLink="/hotel/list">Home</a>
+    <a *ngIf="authService.isAuthenticated()" class="nav-link" routerLink="/hotel/create">Create</a>
+    <a *ngIf="authService.isAuthenticated()" href="javascript:void(0)" class="nav-link" (click)="logout()">Logout</a>
+    <a *ngIf="!authService.isAuthenticated()" class="nav-link" routerLink="/auth/login">Login</a>
+    <a *ngIf="!authService.isAuthenticated()" class="nav-link" routerLink="/auth/register">Register</a>
+</header>
