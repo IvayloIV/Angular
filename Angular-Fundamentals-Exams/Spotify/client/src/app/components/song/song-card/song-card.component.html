@@ -1,0 +1,12 @@
+<h5>Title: {{song.title}}</h5>
+<h5>Artist: {{song.artist}}</h5>
+<img class="cover" [src]="song.imageUrl"/>
+<div *ngIf="userId === song._acl.creator;else songAuth">
+  <p>Likes: {{song.likes}}; Listened {{song.listened}} times</p>
+  <a href="javasciprt:void(0)" (click)="removeSong(song._id)"><button type="button" class="btn btn-danger mt-4">Remove</button></a>
+  <a href="javascript:void(0)" (click)="listenSong(song)"><button type="button" class="btn btn-success mt-4">Listen</button></a>
+</div>
+<ng-template #songAuth>
+  <p>Likes: {{song.likes}}</p>
+  <a href="javascript:void(0)" (click)="likeSong(song)"><button type="button" class="btn btn-primary mt-4">Like</button></a>
+</ng-template>
