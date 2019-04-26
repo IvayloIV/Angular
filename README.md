@@ -24,3 +24,4 @@
 1. [**Budget Planner**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-Exams/Budget_Planner)
 2. [**Railways**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-Exams/Railways)
 3. [**Hotels System**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-Exams/Hotels_System)
+4. [**Spotify**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-Exams/Spotify)
