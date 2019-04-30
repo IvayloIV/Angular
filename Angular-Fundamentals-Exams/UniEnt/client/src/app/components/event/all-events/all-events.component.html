@@ -1,0 +1,12 @@
+<div *ngIf="(events$ | async) as events">
+  <div id="eventsHolder" *ngIf="events.length !== 0; else empty">
+    <div *ngFor="let event of events | sortEvents"
+      class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden eventPlaceholder">
+      <app-event-card [event]="event"></app-event-card>
+    </div>
+  </div>
+
+  <ng-template #empty>
+    <app-empty-list></app-empty-list>
+  </ng-template>
+</div>

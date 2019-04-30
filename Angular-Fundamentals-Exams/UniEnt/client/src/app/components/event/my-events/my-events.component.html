@@ -1,0 +1,13 @@
+<div class="col-md-6 text-center col-lg" *ngIf="(myEvents$ | async) as myEvents">
+  <img class="profile-img" src="../../../../assets/images/user.png" />
+  <div class="profile-info">
+    <p>Username: <small>{{username}}</small></p>
+    <p class="infoType">Organizer of {{myEvents.length}} events.</p>
+    <div *ngIf="myEvents.length !== 0; else emptyEvents">
+      <p *ngFor="let event of myEvents">{{event.name}}</p>
+    </div>
+    <ng-template #emptyEvents>
+      <p>No events</p>
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="row event-details" *ngIf="(events$ | async) as event">
+  <div class="col-md-12 text-center overflow-hidden">
+
+    <img class="details-img" [src]="event.imageURL" />
+    <div class="my-3 p-3">
+      <h2 class="display-5">{{event.name}}</h2>
+      <p class="infoType">Description:</p>
+      <p class="event-description">{{event.description}}</p>
+      <p class="infoType">Date: <small>{{event.dateTime}}</small></p>
+      <p class="infoType">Peope interested in: <small>{{event.peopleInterestedIn}}</small></p>
+      <p class="infoType">Organizer: <small>{{event.organizer}}</small></p>
+    </div>
+
+    <a *ngIf="event._acl.creator === userId" routerLink="/event/edit/{{event._id}}" class="btn btn-primary btn-lg">Edit the event</a>
+    <a *ngIf="event._acl.creator === userId" href="javascript:void(0)" (click)="removeEvent(event._id)" class="btn btn-danger btn-lg">Close the event</a>
+    <a *ngIf="event._acl.creator !== userId" href="javascript:void(0)" (click)="joinEvent(event)" class="btn btn-info btn-lg">Join the event</a>
+  </div>
+</div>
