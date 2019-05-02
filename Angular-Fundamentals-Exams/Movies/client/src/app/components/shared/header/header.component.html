@@ -1,0 +1,12 @@
+<nav>
+    <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li *ngIf="authService.isAuthenticated()"><a routerLink="/movie/all">Cinema</a></li>
+        <li *ngIf="authService.isAuthenticated()"><a routerLink="/movie/create">Add Movie</a></li>
+        <li *ngIf="authService.isAuthenticated()"><a routerLink="/movie/my">My Movies</a></li>
+        <li class="right" *ngIf="authService.isAuthenticated()"><a href="javascript:void(0)" (click)="logout()">Logout</a></li>
+        <li class="right" *ngIf="authService.isAuthenticated()">Welcome, {{authService.getUsername()}}!</li>
+        <li class="right" *ngIf="!authService.isAuthenticated()"><a routerLink="/auth/register">Register</a></li>
+        <li class="right" *ngIf="!authService.isAuthenticated()"><a routerLink="/auth/login">Login</a></li>
+    </ul>
+</nav>

@@ -1,0 +1,16 @@
+<div id="registerForm">
+    <h1>Register</h1>
+    <form [formGroup]="form" (submit)="register()">
+        <label>Username</label>
+        <input type="text" formControlName="username" name="username" id="registerUsername">
+        <div *ngIf="f['username'].dirty && f['username'].invalid" class="error-message">The username should be at least 3 characters long.</div>
+        <label>Password</label>
+        <input type="password" formControlName="password" name="password" id="registerPassword">
+        <div *ngIf="f['password'].dirty && f['password'].invalid" class="error-message">The password should be at least 6 characters long.</div>
+        <label>Repeat Password</label>
+        <input type="password" formControlName="rePassword" name="repeatPassword" id="registerRepeatPassword">
+        <div *ngIf="f['rePassword'].dirty && f['rePassword'].invalid" class="error-message">The repeat password should be at least 6 characters long.</div>
+        <div *ngIf="f['password'].dirty && f['rePassword'].dirty && f['password'].value !== f['rePassword'].value" class="error-message">The repeat password should be equal to the password.</div>
+        <input type="submit" [disabled]="form.invalid || f['password'].value !== f['rePassword'].value" value="Register">
+    </form>
+</div>

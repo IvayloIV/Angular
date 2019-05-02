@@ -1,0 +1,12 @@
+<div id="loginForm">
+    <h1>Login</h1>
+    <form [formGroup]="form" (submit)="login()">
+        <label>Username</label>
+        <input type="text" formControlName="username" name="username" id="loginUsername">
+        <div *ngIf="f['username'].dirty && f['username'].invalid" class="error-message">Username is required.</div>
+        <label>Password</label>
+        <input type="password" formControlName="password" name="password" id="loginPassword">
+        <div *ngIf="f['password'].dirty && f['password'].invalid" class="error-message">Password is required.</div>
+        <input type="submit" [disabled]="form.invalid" value="Login">
+    </form>
+</div>

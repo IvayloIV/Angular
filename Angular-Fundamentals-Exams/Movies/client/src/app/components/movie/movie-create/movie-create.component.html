@@ -1,0 +1,21 @@
+<div id="addMovie">
+  <h1>Create movie</h1>
+  <form [formGroup]="form" (submit)="create()">
+    <label>Title</label>
+    <input type="text" formControlName="title" name="title" id="createTitle">
+    <div *ngIf="f['title'].dirty && f['title'].invalid">The title should be at least 6 characters long.</div>
+    <label>Image Url</label>
+    <input type="text" formControlName="imageUrl" name="imageUrl" id="createImage">
+    <div *ngIf="f['imageUrl'].dirty && f['imageUrl'].invalid">The image should start with "http://" or "https://".</div>
+    <label>Description</label>
+    <textarea type="text" formControlName="description" name="description" id="createDescription"></textarea>
+    <div *ngIf="f['description'].dirty && f['description'].invalid">The description should be at least 10 characters long.</div>
+    <label>Genres</label>
+    <input type="text" formControlName="genres" name="genres" id="createGenres">
+    <div *ngIf="f['genres'].dirty && f['genres'].invalid">The genres must be separated by a single space.</div>
+    <label>Available Tickets</label>
+    <input type="number" formControlName="tickets" name="tickets" id="createTickets">
+    <div *ngIf="f['tickets'].dirty && f['tickets'].invalid">The available tickets should be a positive number.</div>
+    <input type="submit" [disabled]="form.invalid" value="Create">
+  </form>
+</div>

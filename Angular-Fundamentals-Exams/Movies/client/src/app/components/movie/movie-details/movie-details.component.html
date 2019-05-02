@@ -1,0 +1,14 @@
+<div id="detailsMovie" *ngIf="(movie$ | async) as movie">
+  <h1>Details</h1>
+  <div class="movie">
+    <h2>Title: {{movie.title}}</h2>
+    <img [src]="movie.imageUrl">
+    <p>{{movie.description}}</p>
+    <h2>Genres</h2>
+    <ul class="genres">
+      <li>{{movie.genres.join(',')}}</li>
+    </ul>
+    <p>Available Tickets: {{movie.tickets}}</p>
+    <button><a href="javascript:void(0)" (click)="buyTicket(movie)">Buy Ticket</a></button>
+  </div>
+</div>

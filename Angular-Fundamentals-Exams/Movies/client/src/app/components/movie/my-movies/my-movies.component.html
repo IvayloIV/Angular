@@ -1,0 +1,14 @@
+<div id="myMovies">
+  <h1>My Movies</h1>
+  <div class="movies">
+    <div class="movie" *ngFor="let movie of (movies$ | async | sortMovies)">
+      <app-movie-card [movie]="movie"></app-movie-card>
+      <div class="btn-group">
+        <button><a routerLink="/movie/edit/{{movie._id}}">Edit</a></button>
+        <button><a routerLink="/movie/remove/{{movie._id}}">Delete</a></button>
+        <button><a href="javascript:void(0)" (click)="buyTicket(movie)">Buy Ticket</a></button>
+        <button><a routerLink="/movie/details/{{movie._id}}">Details</a></button>
+      </div>
+    </div>
+  </div>
+</div>
