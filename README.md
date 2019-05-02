@@ -26,3 +26,4 @@
 3. [**Hotels System**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-Exams/Hotels_System)
 4. [**Spotify**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-Exams/Spotify)
 5. [**UniEnt**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-Exams/UniEnt)
+6. [**Movies**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-Exams/Movies)
