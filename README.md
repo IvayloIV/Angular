@@ -27,3 +27,4 @@
 4. [**Spotify**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-Exams/Spotify)
 5. [**UniEnt**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-Exams/UniEnt)
 6. [**Movies**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-Exams/Movies)
+7. [**CookUni**](https://github.com/IvayloIV/Angular/tree/master/Angular-Fundamentals-Exams/CookUni)
