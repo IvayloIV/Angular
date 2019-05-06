@@ -1,0 +1,27 @@
+<div class="row form-layout p-5" *ngIf="(recipe$ | async) as recipe">
+  <div class="col-md-12">
+      <div class="recepieInfo">
+          <div class="detailsFoodImage">
+              <img [src]="recipe.foodImageURL">
+          </div>
+
+          <div class="infoPack">
+              <h3 class="my-3">{{recipe.meal}}</h3>
+              <p class="prep-method">{{recipe.prepMethod}}</p>
+              <p class="description">{{recipe.description}}</p>
+          </div>
+          <div class="actions">
+              <a *ngIf="recipe._acl.creator === userId" class="btn btn-danger" href="javascript:void(0)" (click)="removeRecipe(recipe._id)">Archive</a>
+              <a *ngIf="recipe._acl.creator === userId" class="btn btn-info" routerLink="/recipe/edit/{{recipe._id}}">Edit</a>
+              <a *ngIf="recipe._acl.creator !== userId" class="btn btn-success" href="javascript:void(0)" (click)="likeCurrentRecipe(recipe)"> {{recipe.likesCounter}} likes</a>
+          </div>
+      </div>
+
+      <div class="detailsIngredients">
+          <h3 class="my-3 ingredient">Ingredients</h3>
+          <ul>
+              <li *ngFor="let ingredient of recipe.ingredients">{{ingredient}}</li>
+          </ul>
+      </div>
+  </div>
+</div>

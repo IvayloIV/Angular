@@ -1,0 +1,13 @@
+<header class="masthead mb-auto">
+    <div class="inner">
+        <h3 class="masthead-brand">CookUni</h3>
+        <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link" routerLink="/">Home</a>
+            <a *ngIf="authService.isAuthenticated()" class="nav-link" href="javascript:void(0)">Welcome, {{authService.getUsername()}}!</a>
+            <a *ngIf="authService.isAuthenticated()" class="nav-link" routerLink="/recipe/create">Share recipe</a>
+            <a *ngIf="authService.isAuthenticated()" class="nav-link" href="javascript:void(0)" (click)="logout()">Logout</a>
+            <a *ngIf="!authService.isAuthenticated()" class="nav-link" routerLink="/auth/login">Login</a>
+            <a *ngIf="!authService.isAuthenticated()" class="nav-link" routerLink="/auth/register">Register</a>
+        </nav>
+    </div>
+</header>

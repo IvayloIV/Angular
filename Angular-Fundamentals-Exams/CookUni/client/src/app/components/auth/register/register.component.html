@@ -1,0 +1,31 @@
+<form [formGroup]="form" (submit)="register()">
+    <p class="h4 mb-4">Sign up</p>
+    <div class="form-row mb-4">
+        <div class="col">
+            <input type="text" formControlName="firstName" id="defaultRegisterFormFirstName" class="form-control" name="firstName"
+                placeholder="First name">
+            <div *ngIf="f['firstName'].dirty && f['firstName'].invalid" class="error-message">First name should be at least 2 symbols.</div>
+        </div>
+        <div class="col">
+
+            <input type="text" formControlName="lastName" id="defaultRegisterFormLastName" class="form-control" name="lastName"
+                placeholder="Last name">
+            <div *ngIf="f['lastName'].dirty && f['lastName'].invalid" class="error-message">Last name should be at least 2 symbols.</div>
+        </div>
+    </div>
+
+    <input type="text" formControlName="username" id="defaultRegisterFormUsername" class="form-control mb-4" name="username"
+        placeholder="Username">
+    <div *ngIf="f['username'].dirty && f['username'].invalid" class="error-message">Username should be at least 3 symbols.</div>
+
+    <input type="password" formControlName="password" id="defaultRegisterFormPassword" class="form-control" name="password"
+        placeholder="Password">
+    <div *ngIf="f['password'].dirty && f['password'].invalid" class="error-message">Password should be at least 6 symbols.</div>
+
+    <hr>
+    <input type="password" formControlName="repeatPassword" id="defaultRegisterRepeatPassword" class="form-control" name="repeatPassword"
+        placeholder="Repeat Password">
+    <div *ngIf="f['password'].dirty && f['repeatPassword'].dirty && f['password'].value !== f['repeatPassword'].value" class="error-message">The repeat password should be equal to the password.</div>
+
+    <button class="btn btn-danger my-4 btn-block w-25 m-auto" [disabled]="form.invalid || f['password'].value !== f['repeatPassword'].value" type="submit">Sign up</button>
+</form>

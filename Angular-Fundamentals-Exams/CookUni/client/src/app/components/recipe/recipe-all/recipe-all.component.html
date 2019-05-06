@@ -1,0 +1,7 @@
+<div *ngIf="(allRecipes$ | async) as recipes">
+  <app-empty-list *ngIf="recipes.length === 0"></app-empty-list>
+
+  <div id="sharedRecipes" *ngIf="recipes.length !== 0">
+    <app-recipe-card *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe-card>
+  </div>
+</div>
