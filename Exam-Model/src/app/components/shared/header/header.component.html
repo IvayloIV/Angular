@@ -1,0 +1,26 @@
+<header>
+    <div class="header-logo">
+        <img src="../../../../assets/images/burger-logo.png" alt="burger-logo">
+        <h1>Magic burgers</h1>
+    </div>
+    <nav>
+        <div class="container">
+            <div class="header-left">
+                <a class="nav-link" routerLink="/burger/home">Home</a>
+                <a class="nav-link" routerLink="/burger/menu">Menu</a>
+                <a *ngIf="authService.isAuthenticated()" class="nav-link" routerLink="/topping/list">Toppings</a>
+                <a *ngIf="authService.isAdmin()" class="nav-link" routerLink="/burger/create">Create Burger</a>
+                <a *ngIf="authService.isAdmin()" class="nav-link" routerLink="/topping/create">Create Topping</a>
+            </div>
+            <div class="header-right">
+                <a *ngIf="authService.isAdmin()" class="nav-link" routerLink="/order/all">Orders</a>
+                <a *ngIf="authService.isAuthenticated()" class="nav-link" routerLink="/order/my">My Orders</a>
+                <a *ngIf="authService.isAdmin()" class="nav-link" routerLink="/user/all">Users</a>
+                <a *ngIf="authService.isAuthenticated()" class="nav-link" routerLink="/user/profile/my">Profile</a>
+                <a *ngIf="authService.isAuthenticated()" class="nav-link" (click)="logout()" href="javascript:void(0)">Logout</a>
+                <a *ngIf="!authService.isAuthenticated()" class="nav-link" routerLink="/auth/login">Login</a>
+                <a *ngIf="!authService.isAuthenticated()" class="nav-link" routerLink="/auth/register">Register</a>
+            </div>
+        </div>
+    </nav>
+</header>

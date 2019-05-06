@@ -1,0 +1,48 @@
+<section class="register">
+    <div class="register-container">
+        <div class="register-image">
+            <img src="../../../../assets/images/register-profile.jpeg" alt="picture-image">
+        </div>
+        <div class="register-form">
+            <div class="register-header">
+                <h2>Register</h2>
+            </div>
+            <form [formGroup]="form" (submit)="register()">
+                <div class="input-field">
+                    <input type="text" formControlName="email" name="email" placeholder="Email">
+                    <div *ngIf="f['email'].dirty && f['email'].invalid" class="error-message">Invalid email.</div>
+                </div>
+                <div class="input-field">
+                    <input type="text" formControlName="username" name="username" placeholder="Username">
+                    <div *ngIf="f['username'].dirty && f['username'].invalid" class="error-message">Username should be more than 3 symbols.</div>
+                </div>
+                <div class="input-field">
+                    <input type="text" formControlName="firstName" name="firstName" placeholder="First name">
+                    <div *ngIf="f['firstName'].dirty && f['firstName'].invalid" class="error-message">First name should be more than 3 symbols.</div>
+                </div>
+                <div class="input-field">
+                    <input type="text" formControlName="lastName" name="lastName" placeholder="Last name">
+                    <div *ngIf="f['lastName'].dirty && f['lastName'].invalid" class="error-message">Last name should be more than 3 symbols.</div>
+                </div>
+                <div class="input-field">
+                    <input type="number" formControlName="age" name="age" placeholder="Age">
+                    <div *ngIf="f['age'].dirty && f['age'].invalid" class="error-message">Age must be positive number.</div>
+                </div>
+                <div class="input-field">
+                    <input type="password" formControlName="password" name="password" placeholder="Password">
+                    <div *ngIf="f['password'].dirty && f['password'].invalid" class="error-message">Password should be more than 3 symbols.</div>
+                </div>
+                <div class="input-field">
+                    <input type="password" formControlName="repeatPass" name="repeatPass" placeholder="Repeat password">
+                    <div *ngIf="f['repeatPass'].dirty && f['repeatPass'].invalid" class="error-message">Repeat password should be more than 3 symbols.</div>
+                    <div *ngIf="f['password'].dirty && f['repeatPass'].dirty && f['repeatPass'].valid && f['password'].value !== f['repeatPass'].value" class="error-message">Passwords should match.</div>
+                </div>
+                <div class="input-field">
+                    <input type="string" formControlName="imageUrl" name="imageUrl" placeholder="Image">
+                    <div *ngIf="f['imageUrl'].dirty && f['imageUrl'].invalid" class="error-message">Image must start with http or https.</div>
+                </div>
+                <input type="submit" [disabled]="form.invalid || f['password'].value !== f['repeatPass'].value" value="Register" />
+            </form>
+        </div>
+    </div>
+</section>

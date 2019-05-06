@@ -1,0 +1,27 @@
+<section class="login">
+    <div class="login-left">
+        <img src="../../../../assets/images/login-burger.png" alt="login-burger">
+    </div>
+    <div class="login-right">
+        <div class="login-header">
+            <h2>Login</h2>
+        </div>
+        <form [formGroup]="form" (submit)="login()">
+            <div>
+                <label>
+                    <span>Email:</span>
+                    <input type="text" formControlName="email" name="email">
+                </label>
+                <div *ngIf="f['email'].dirty && f['email'].invalid" class="error-message">Invalid email.</div>
+            </div>
+            <div>
+                <label>
+                    <span>Password:</span>
+                    <input type="password" formControlName="password" name="password">
+                </label>
+                <div *ngIf="f['password'].dirty && f['password'].invalid" class="error-message">Password should be more than 3 symbols.</div>
+            </div>
+            <input type="submit" [disabled]="form.invalid" value="Login" />
+        </form>
+    </div>
+</section>
