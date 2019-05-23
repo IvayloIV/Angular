@@ -1,0 +1,26 @@
+<section class="dashboard">
+  <h1>Dashboard</h1>
+  <nav class="navbar">
+    <ul>
+      <li><a routerLink="/pet/all">All</a></li>
+      <li><a routerLink="/pet/all" [queryParams]="{category: 'Cat'}">Cats</a></li>
+      <li><a routerLink="/pet/all" [queryParams]="{category: 'Dog'}">Dogs</a></li>
+      <li><a routerLink="/pet/all" [queryParams]="{category: 'Parrot'}">Parrots</a></li>
+      <li><a routerLink="/pet/all" [queryParams]="{category: 'Reptile'}">Reptiles</a></li>
+      <li><a routerLink="/pet/all" [queryParams]="{category: 'Other'}">Other</a></li>
+    </ul>
+  </nav>
+  <ul class="other-pets-list">
+    <li *ngFor="let pet of (pets$ | async | filterPets: category)" class="otherPet">
+      <h3>Name: {{pet.name}}</h3>
+      <p>Category: {{pet.category}}</p>
+      <p class="img"><img [src]="pet.imageURL"></p>
+      <p class="description">{{pet.description}}</p>
+      <div class="pet-info">
+        <a href="javascript:void(0)" (click)="like(pet._id, pet)"><button class="button"><i class="fas fa-heart"></i>Pet</button></a>
+        <a routerLink="/pet/details/{{pet._id}}"><button class="button">Details</button></a>
+        <i class="fas fa-heart"></i> <span> {{pet.likes}}</span>
+      </div>
+    </li>
+  </ul>
+</section>

@@ -1,0 +1,9 @@
+<section class="deletePet">
+  <h3>{{pet.name}}</h3>
+  <p>Pet counter: <i class="fas fa-heart"></i> {{pet.likes}}</p>
+  <p class="img"><img [src]="pet.imageURL"></p>
+  <form>
+      <input class="description" name="description" [(ngModel)]="description" />
+      <button class="button" (click)="editPet()">Save</button>
+  </form>
+</section>

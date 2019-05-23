@@ -1,0 +1,9 @@
+<section class="deletePet" *ngIf="(pet$ | async) as pet">
+  <h3>{{pet.name}}</h3>
+  <p>Pet counter: <i class="fas fa-heart"></i> {{pet.likes}}</p>
+  <p class="img"><img [src]="pet.imageURL"></p>
+  <form>
+      <p class="description" name="description">{{pet.description}}</p>
+      <button class="button" (click)="removePet(pet._id)">Delete</button>
+  </form>
+</section>

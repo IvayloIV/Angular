@@ -1,0 +1,26 @@
+<section class="register">
+    <form [formGroup]="form" (submit)="register()">
+        <fieldset>
+            <legend>Register</legend>
+            <p class="field">
+                <label for="username">Username</label>
+                <span *ngIf="f['username'].dirty && f['username'].invalid">Username should be al least 3 symbols.</span>
+                <span class="input">
+                    <input type="text" formControlName="username" name="username" id="username" placeholder="Username" />
+                    <span class="actions"></span>
+                    <i class="fas fa-user"></i>
+                </span>
+            </p>
+            <p class="field">
+                <label for="password">Password</label>
+                <span *ngIf="f['password'].dirty && f['password'].invalid">Password should be al least 6 symbols.</span>
+                <span class="input">
+                    <input type="password" formControlName="password" name="password" id="password" placeholder="Password" />
+                    <span class="actions"></span>
+                    <i class="fas fa-key"></i>
+                </span>
+            </p>
+            <input class="button" [disabled]="form.invalid" type="submit" class="submit" value="Register" />
+        </fieldset>
+    </form>
+</section>

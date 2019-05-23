@@ -1,0 +1,16 @@
+<section class="my-pets">
+  <h1>My Pets</h1>
+  <ul class="my-pets-list">
+    <section class="myPet" *ngFor="let pet of pets$ | async">
+      <h3>Name: {{pet.name}}</h3>
+      <p>Category: {{pet.category}}</p>
+      <p class="img"><img [src]="pet.imageURL"></p>
+      <p class="description">{{pet.description}}</p>
+      <div class="pet-info">
+        <a routerLink="/pet/edit/{{pet._id}}"><button class="button">Edit</button></a>
+        <a routerLink="/pet/remove/{{pet._id}}"><button class="button">Delete</button></a>
+        <i class="fas fa-heart"></i> <span>{{pet.likes}}</span>
+      </div>
+    </section>
+  </ul>
+</section>

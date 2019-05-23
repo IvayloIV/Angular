@@ -1,0 +1,47 @@
+<section class="create">
+  <form [formGroup]="form" (submit)="createPet()">
+      <fieldset>
+          <legend>Add new Pet</legend>
+          <p class="field">
+              <label for="name">Name</label>
+              <span *ngIf="f['name'].dirty && f['name'].invalid">Name is required.</span>
+              <span class="input">
+                <input type="text" name="name" formControlName="name" id="name" placeholder="Name" />
+                <span class="actions"></span>
+              </span>
+            </p>
+            <p class="field">
+              <label for="description">Description</label>
+              <span *ngIf="f['description'].dirty && f['description'].invalid">Description is required.</span>
+              <span class="input">
+                <textarea rows="4" cols="45" formControlName="description" type="text" name="description" id="description"
+                placeholder="Description"></textarea>
+                <span class="actions"></span>
+              </span>
+            </p>
+            <p class="field">
+              <label for="image">Image</label>
+              <span *ngIf="f['imageURL'].dirty && f['imageURL'].invalid">ImageUrl is required.</span>
+              <span class="input">
+                <input type="text" name="imageURL" formControlName="imageURL" id="image" placeholder="Image" />
+                <span class="actions"></span>
+              </span>
+            </p>
+            <p class="field">
+              <label for="category">Category</label>
+              <span *ngIf="f['category'].dirty && f['category'].invalid">Category is required.</span>
+              <span class="input">
+                  <select type="text" formControlName="category" name="category">
+                      <option>Cat</option>
+                      <option>Dog</option>
+                      <option>Parrot</option>
+                      <option>Reptile</option>
+                      <option>Other</option>
+                  </select>
+                  <span class="actions"></span>
+              </span>
+          </p>
+          <input class="button" [disabled]="form.invalid" type="submit" class="submit" value="Add Pet" />
+      </fieldset>
+  </form>
+</section>
