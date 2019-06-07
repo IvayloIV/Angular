@@ -1,0 +1,12 @@
+<div id="meme-feed" *ngIf="(allMemes$ | async) as allMemes">
+  <h1>Meme Feed</h1>
+  <div id="memes">
+      <app-meme-card 
+        *ngFor="let meme of allMemes" 
+        [meme]="meme"
+        [isOwner]="userId === meme._acl.creator"
+        (deleteMeme)="removeMeme($event)">
+      </app-meme-card>
+      <p *ngIf="allMemes.length === 0" class="no-memes">No memes in database.</p>
+  </div>
+</div>

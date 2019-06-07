@@ -1,0 +1,22 @@
+<div id="create-meme">
+  <form [formGroup]="form" (submit)="createMeme()">
+    <div class="container">
+      <h1>Create Meme</h1>
+      <p>Please fill in this form to create an meme.</p>
+
+      <p>Title</p>
+      <input type="text" formControlName="title" placeholder="Enter Title" name="title">
+      <div *ngIf="f['title'].dirty && f['title'].invalid">The title length must not exceed 33 characters!</div>
+
+      <p>Description</p>
+      <input type="text" formControlName="description" placeholder="Enter Description" name="description">
+      <div *ngIf="f['description'].dirty && f['description'].invalid">The description length must not exceed 450 characters and should be at least 30!</div>
+
+      <p>Meme Image</p>
+      <input type="text" formControlName="imageUrl" placeholder="Enter meme ImageUrl" name="imageUrl">
+      <div *ngIf="f['imageUrl'].dirty && f['imageUrl'].invalid">Link url should always start with "http".</div>
+
+      <button type="submit" [disabled]="form.invalid" class="registerbtn">Create Meme</button>
+    </div>
+  </form>
+</div>

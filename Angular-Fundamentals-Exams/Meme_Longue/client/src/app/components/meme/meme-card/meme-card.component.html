@@ -1,0 +1,15 @@
+<div class="meme">
+    <a routerLink="/meme/details/{{meme._id}}" class="meme-title">{{meme.title}}</a>
+    <br>
+    <a routerLink="/meme/details/{{meme._id}}"><img class="meme-image" [src]="meme.imageUrl"></a>
+    <div class="info">
+
+        <div id="data-buttons">
+            <a routerLink="/meme/details/{{meme._id}}" class="custom-button">Check Out</a>
+            <a *ngIf="isOwner" routerLink="/meme/edit/{{meme._id}}" class="custom-button">Edit</a>
+            <a *ngIf="isOwner" href="javascript:void(0)" (click)="removeMeme(meme._id)" class="custom-button">Delete</a>
+            <a routerLink="/user/profile/{{meme._acl.creator}}" class="creator">Creator: {{meme.creator}}</a>
+        </div>
+    </div>
+    <hr>
+</div>

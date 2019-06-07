@@ -1,0 +1,36 @@
+<div id="register">
+    <form [formGroup]="form" (submit)="register()">
+        <div class="container">
+            <h1>Register</h1>
+            <p id="details">Please fill in this form to create an account.</p>
+            <hr id="login-register-hr">
+
+            <p id="username">Username</p>
+            <input type="text" formControlName="username" placeholder="Enter Username" name="username">
+            <div *ngIf="f['username'].dirty && f['username'].invalid">Username should be at least 3 characters long and should contain only english alphabet letters.</div>
+
+            <p>Password</p>
+            <input type="password" formControlName="password" placeholder="Enter Password" name="password">
+            <div *ngIf="f['password'].dirty && f['password'].invalid">Password should be at least 6 characters long and should contain only english alphabet letters and digits.</div>
+
+            <p>Repeat Password</p>
+            <input type="password" formControlName="repeatPass" placeholder="Repeat Password" name="repeatPass">
+            <div *ngIf="f['repeatPass'].dirty && f['repeatPass'].value !== f['password'].value">Passwords must match.</div>
+
+            <p>Email</p>
+            <input type="email" formControlName="email" placeholder="Enter Email" name="email">
+            <div *ngIf="f['email'].dirty && f['email'].invalid">Email is required.</div>
+
+            <p>Avatar Url</p>
+            <input type="text" formControlName="avatarUrl" placeholder="Enter AvatarUrl" name="avatarUrl">
+            <div *ngIf="f['avatarUrl'].dirty && f['avatarUrl'].invalid">Avatar Url is required.</div>
+            <hr>
+
+            <button type="submit" [disabled]="form.invalid || f['password'].value !== f['repeatPass'].value" class="registerbtn">Register</button>
+        </div>
+        <div class="container signin">
+            <p>Already have an account?
+                <a routerLink="/auth/login">Sign in</a>.</p>
+        </div>
+    </form>
+</div>

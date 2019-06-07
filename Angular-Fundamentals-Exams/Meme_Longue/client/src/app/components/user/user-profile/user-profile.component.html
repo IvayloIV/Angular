@@ -1,0 +1,23 @@
+<div class="user-profile" *ngIf="(user$ | async) as user">
+
+  <img id="user-avatar-url" [src]="user.avatarUrl" alt="user-profile">
+  <h1>user</h1>
+  <h2>{{user.email}}</h2>
+
+  <a id="deleteUserButton" (click)="removeUser(user._id)" *ngIf="user._id === userId" href="javascript:void(0)">DELETE USER!</a>
+
+  <p id="user-listings-title">User Memes</p>
+  <div class="user-meme-listings" *ngIf="(userMemes$ | async) as userMemes">
+      <div class="user-meme" *ngFor="let u of userMemes">
+          <a routerLink="/meme/details/{{u._id}}" class="user-meme-title">{{u.title}}</a>
+          <a routerLink="/meme/details/{{u._id}}"><img class="userProfileImage" [src]="u.imageUrl"></a>
+
+          <div class="user-memes-buttons" *ngIf="u._acl.creator === userId">
+              <a routerLink="/meme/edit/{{u._id}}" class="user-meme-btn">Edit</a>
+              <a href="javascript:void(0)" (click)="removeMeme(u._id)" class="user-meme-btn">Delete</a>
+          </div>
+      </div>
+      <p class="no-memes" *ngIf="userMemes.length === 0">No memes in database.</p>
+
+  </div>
+</div>

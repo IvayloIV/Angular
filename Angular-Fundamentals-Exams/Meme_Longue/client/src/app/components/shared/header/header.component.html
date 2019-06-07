@@ -1,0 +1,9 @@
+<nav>
+    <a class="active" routerLink="/">Home</a>
+    <a *ngIf="authService.isAuthenticated()" routerLink="/meme/create">Create Meme</a>
+    <div id="profile">
+        <a *ngIf="authService.isAuthenticated()">Welcome, {{authService.getUsername()}}</a>
+        <a *ngIf="authService.isAuthenticated()" routerLink="/user/profile/{{authService.getUserId()}}">My Profile</a>
+        <a *ngIf="authService.isAuthenticated()" href="javascript:void(0)" (click)="logout()">logout</a>
+    </div>
+</nav>
