@@ -1,0 +1,20 @@
+<section id="viewMyFlights">
+  <h3>Your Flights</h3>
+  <div class="flight-ticket" *ngFor="let flight of (flights$ | async)">
+      <div class="flight-left">
+          <img [src]="flight.image" alt="flight-image">
+      </div>
+      <div class="flight-right">
+          <div>
+              <h3>{{flight.destination}}</h3><span>{{flight.departureDate | date: 'hh/MM/yyyy'}}</span>
+          </div>
+          <div>
+              from {{flight.origin}} <span>{{flight.departureTime}}</span>
+          </div>
+          <p>{{flight.seats}} Seats ({{flight.cost}}$ per seat) </p>
+          <a href="javascript:void(0)" (click)="removeFlight(flight._id)" class="remove">REMOVE</a>
+          <a routerLink="/flight/details/{{flight._id}}" class="details">Details</a>
+      </div>
+
+  </div>
+</section>

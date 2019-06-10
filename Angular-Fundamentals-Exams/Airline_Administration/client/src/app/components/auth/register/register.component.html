@@ -1,0 +1,18 @@
+<section id="viewRegister">
+    <h2>Create your account:</h2>
+    <form [formGroup]="form" (submit)="register()" id="formRegister">
+        <label>Username:</label>
+        <input type="text" formControlName="username" name="username" placeholder="Username" >
+        <div *ngIf="f['username'].dirty && f['username'].invalid">Username should be a string with at least 5 characters long.</div>
+
+        <label>Password:</label>
+        <input type="password" formControlName="password" name="pass" placeholder="Password">
+        <div *ngIf="f['password'].dirty && f['password'].invalid">Passwords input fields shouldn’t be empty.</div>
+
+        <label>Repeat Password:</label>
+        <input type="password" formControlName="repeatPass" name="checkPass" placeholder="Repeat Password">
+        <div *ngIf="f['repeatPass'].dirty && f['repeatPass'].value !== f['password'].value">Both passwords should match.</div>
+
+        <input type="submit" [disabled]="form.invalid || f['password'].value !== f['repeatPass'].value" class="register" value="Register">
+    </form>
+</section>

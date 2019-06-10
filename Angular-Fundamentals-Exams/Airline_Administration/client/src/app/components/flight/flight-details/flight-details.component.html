@@ -1,0 +1,18 @@
+<section id="viewFlightDetails" *ngIf="(flight$ | async) as flight">
+    <div class="ticket-area">
+        <div class="ticket-area-left">
+            <img [src]="flight.image" alt="flight-image">
+        </div>
+        <div class="ticket-area-right">
+            <h3>{{flight.destination}}</h3>
+            <div>from {{flight.origin}}</div>
+            <div class="data-and-time">
+                {{flight.departureDate | date: 'M/d/yyyy'}}
+                <a *ngIf="flight._acl.creator === userId" routerLink="/flight/edit/{{flight._id}}" class="edit-flight-detail"></a>
+            </div>
+            <div>
+                {{flight.seats}} Seats ({{flight.cost}} per seat)
+            </div>
+        </div>
+    </div>
+</section>

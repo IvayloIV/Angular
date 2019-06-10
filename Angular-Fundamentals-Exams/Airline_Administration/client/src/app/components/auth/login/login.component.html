@@ -1,0 +1,14 @@
+<section id="viewLogin">
+    <h2>Login to your account:</h2>
+    <form #form="ngForm" (submit)="login(form.value)" id="formLogin">
+        <label>Username:</label>
+        <input type="text" ngModel #username="ngModel" minlength="4" name="username" placeholder="Enter your Email" required>
+        <div *ngIf="username.dirty && username.invalid">Username should be a string with at least 5 characters long.</div>
+
+        <label>Password:</label>
+        <input type="password" ngModel #password="ngModel" name="password" placeholder="Enter your Password" required>
+        <div *ngIf="password.dirty && password.invalid">Passwords input fields shouldn’t be empty.</div>
+
+        <input type="submit" [disabled]="form.invalid" class="login" value="Login">
+    </form>
+</section>

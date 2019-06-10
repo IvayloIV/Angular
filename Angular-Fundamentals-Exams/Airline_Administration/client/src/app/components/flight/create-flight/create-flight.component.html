@@ -1,0 +1,37 @@
+<section id="viewAddFlight">
+  <h2>Add new flight</h2>
+  <form [formGroup]="form" (submit)="createFlight()" id="formAddFlight">
+    <label>Destination:</label>
+    <input type="text" formControlName="destination" name="destination" placeholder="Destination">
+    <div *ngIf="f['destination'].dirty && f['destination'].invalid">Destination is required.</div>
+
+    <label>Origin:</label>
+    <input type="text" formControlName="origin" name="origin" placeholder="Origin">
+    <div *ngIf="f['origin'].dirty && f['origin'].invalid">Origin is required.</div>
+
+    <label>Departure Date:</label>
+    <input type="date" formControlName="departureDate" name="departureDate">
+    <div *ngIf="f['departureDate'].dirty && f['departureDate'].invalid">Departure date is required.</div>
+
+    <label>Departure Time:</label>
+    <input type="time" formControlName="departureTime" name="departureTime">
+    <div *ngIf="f['departureTime'].dirty && f['departureTime'].invalid">Departure time is required.</div>
+
+    <label>Number of Seats:</label>
+    <input type="number" formControlName="seats" name="seats" placeholder="0">
+    <div *ngIf="f['seats'].dirty && f['seats'].invalid">Seats must be a positive number.</div>
+
+    <label>Cost per seat:</label>
+    <input type="number" step="2" formControlName="cost" name="cost" placeholder="0.00">
+    <div *ngIf="f['cost'].dirty && f['cost'].invalid">Cost must be a positive number.</div>
+
+    <label>Image:</label>
+    <input type="text" formControlName="image" name="img">
+    <div *ngIf="f['image'].dirty && f['image'].invalid">Image is required.</div>
+
+    <label>Is Public:</label>
+    <input type="checkbox" formControlName="isPublished" name="public">
+
+    <input type="submit" class="create" [disabled]="form.invalid" value="Create">
+  </form>
+</section>

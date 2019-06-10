@@ -1,0 +1,14 @@
+<nav>
+    <div class="left-container">
+        <ul>
+            <li *ngIf="authService.isAuthenticated()"><a routerLink="/flight">Home</a></li>
+            <li *ngIf="authService.isAuthenticated()"><a routerLink="/flight/my">Flights</a></li>
+            <li *ngIf="!authService.isAuthenticated()"><a routerLink="/auth/login">Login</a></li>
+            <li *ngIf="!authService.isAuthenticated()"><a routerLink="/auth/register">Register</a></li>
+        </ul>
+    </div>
+    <div class="right-container" *ngIf="authService.isAuthenticated()">
+        <span>Welcome, {{authService.getUsername()}} |</span>
+        <a href="javascript:void(0)" (click)="logout()" class="log-out">Logout</a>
+    </div>
+</nav>

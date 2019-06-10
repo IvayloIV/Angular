@@ -1,0 +1,8 @@
+<section id="viewCatalog" class="background-img">
+  <a routerLink="/flight/create" class="add-flight">Add Flight +</a>
+
+  <div class="added-flights">
+      <app-flight-card *ngFor="let flight of (flights$ | async)" [flight]="flight">
+      </app-flight-card>
+  </div>
+</section>
